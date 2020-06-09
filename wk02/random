@@ -1,0 +1,26 @@
+We've seen data types in COMP1511:
+Some examples:
+Each of these are made up of certain number of bytes.
+Stored inside the computer as a certain number of bytes.
+NOTE: 1 byte = 8 bits
+- int    -> 4 bytes -> 32 bits
+- char   -> 1 bytes -> 8 bits
+- double -> 8 bytes -> 64 bits
+
+When we do something like, this is what it looks like in memory.
+int num = 1;
+num: 0000 0000 0000 0000 0000 0000 0000 0001
+char ch = 'a'; // This is equivalent to saying ch = 97.
+ch:  0110 0001
+double d = 0.5;
+d:   .... // A bit different, will look into it later.
+
+With integers, we have to represent both negatives and positives.
+For negative, very first bit is used to represent SIGN.
+1 -> negative
+0 -> positive 
+e.g.
+1000 0000 0000 0000 0000 0000 0000 0001 -> negative number
+0000 0000 0000 0000 0000 0000 0000 0001 -> positive number
+
+
