@@ -1,0 +1,41 @@
+struct overlay {
+    float f;    // 32 bits
+    uint32_t u; // 32 bits
+}; -> 64 bits 
+
+struct overlay var1;
+var1.f = 2.5;
+var1.u = 10;
+
+struct overlay var1:
+
+printf("%f\n", var1.f); // 2.5
+printf("%d\n", var1.u); // 10
+
+union overlay {
+    float f;    // 32 bits
+    uint32_t u; // 32 bits
+}; -> 32 bits
+
+union overlay var2 = 2.5;
+
+var2 -> 32 bits:
+0 10000000 0100...0000 
+
+printf("%f\n", var2.f); // 2.5
+printf("%d\n", var2.u); // 1,...,...,...
+
+0 10000000 0100...0000 
+2^(21) + 2^(30) = 
+
+
+union char_int {
+    int num; // 32 bits
+    char ch; // 8 bits
+}; -> 32 bits
+
+union char_int ch_int = 10;
+0000 .... 1010
+
+printf("%d\n", ch_int.num); // 10
+printf("%c\n", ch_int.ch);  // null

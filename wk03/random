@@ -1,0 +1,48 @@
+RECAP
+Q7
+0 ^ 0 = 0
+0 ^ 1 = 1
+1 ^ 0 = 1
+1 ^ 1 = 0
+
+1110 0101
+1000 1011 ^
+-----------
+0110 1110
+
+Q8
+maintain the sign!! -> leftmost bit -> replace by leftmost bit
+1010 1100 >> 3 -> shifting all bits right by 3
+= 1111 0101
+
+Q9 BIT MASK 
+1. Get the value of bits at specific position -> AND & -> value & mask
+e.g.
+1000 0111
+0000 1000 &
+-----------
+0000 0000
+
+2. Set the value of bits at specific position -> OR | -> value | mask
+e.g. we want leftmost bit to be 1
+0000 0011
+1000 0000 |
+-----------
+1000 0011
+
+Q1. 
+REMEMBER:
+Signed integer -> leftmost bit is sign 
+
+On a machine with 16-bit ints, the C expression (30000 + 30000) yields a negative result.
+16 bits:
+0000 0000 0000 0000 -> leftmost is 2^15
+
+Why the negative result? 
+It doesn't fit in 16 bits.
+
+How can you make it produce the correct result?
+leftmost bit = sign -> 15 bits to represent an integer
+Make it unsigned -> 16 bits 
+
+0x3FFF

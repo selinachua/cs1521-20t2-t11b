@@ -1,0 +1,93 @@
+IEEE Floating Point Representation
+float f = ...; // single precision
+single precision -> 32 bits -> float 
+double d = ...; // double precision
+double precision -> 64 bits -> double 
+The way floats are represented in binary.
+
+float with 32 bits: 
+sign | exponent |       fraction
+  0  | 01111111 | 10000000000000000000000
+leftmost bit -> sign 
+next 8 bits  -> exponent
+last 23 bits -> fraction / mantissa 
+1 + 8 + 23 = 32 bits
+
+exponent -> unsigned int
+
+
+Formula for converting IEEE -> decimal:
+(-1^sign) * (1 + fraction) * 2^(exponent - bias)
+(sign) * (1 + fraction) * 2^(exponent - bias)
+
+How to find each section:
+SIGN:
+leftmost bit = 1 -> sign = -1
+leftmost bit = 0 -> sign = 1
+
+EXPONENT:
+Add up 2^i, where i = position
+Same thing as decimal 
+
+FRACTION:
+Similar to decimal 
+
+IEEE -> decimal
+(-1^sign) * (1 + fraction) * 2^(exponent - bias)
+bias = 127
+
+a) 0 01111111 10000000000000000000000
+sign     = 0 
+exponent = 127
+fraction = 0.5
+
+(-1^0) * (1 + 0.5) * 2^(127 - 127)
+= 1 * 1.5 * 1 = 1.5
+
+b) 0 01111110 00000000000000000000000
+
+0111 1110
+= 126
+
+sign     = 0
+exponent = 126
+fraction = 0
+
+(-1^0) * (1 + 0) * 2^(126-127)
+= 1 * 1 * 2^(-1)
+= 1 * 1 * 0.5 = 0.5
+
+c) 0 01111110 11111111111111111111111
+
+d) 0 10000000 01100000000000000000000
+
+e) 0 10010100 10000000000000000000000
+
+decimal -> IEEE
+1. Find biggest power of 2 that fits 
+2. Divide by that
+
+(-1^sign) * (1 + fraction) * 2^(exponent - bias)
+
+Hints:
+2^(-1) = 0.5
+2^(-2) = 0.25
+2^(-3) = 0.125
+2^(-4) = 0.0625
+
+1. Finding the biggest power of 2 that fits
+
+decimal -> IEEE 
+(-1^sign) * (1 + fraction) * 2^(exponent - 127)
+
+a) 2.5 = 1 * 1.25 * 2^1
+= (-1^0) * (1 + 0.25) * 2^(128 - 127)
+= 0 10000000 0100...0000
+
+b) 0.375 = 2^(-2) * 1.5
+= (-1^0) * (1 + 0.5) * 2^(125 - 127)
+0  01111101 1000...0000
+
+c) 27.0
+
+d) 100.0
