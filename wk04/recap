@@ -1,0 +1,14 @@
+- weekly tests started 
+- post kahoot online -> recorded my friday
+- assignment 1 is coming out soon 
+
+Q7:
+0 01111111 1000...000
+sign = 0
+exp  = 2^0 + ... + 2^6 = 127
+frac = 2^-1 = 0.5
+
+(-1^sign) * (1 + fraction) * 2^(exp-127)
+(-1^0) * (1 + 0.5) * 2^(127-127)
+= 1 * 1.5 * 2^0 = 1.5
+

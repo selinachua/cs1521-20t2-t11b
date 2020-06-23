@@ -1,10 +1,43 @@
-REGISTERS
+compile C -> ... -> assembly -> ... -> machine code (binary)
 
+REGISTERS
+Think of it like a MIPS variable
+int x in C 
+register -> $t0, $s0, $a0 -> 32 registers
 
 INSTRUCTIONS
+$t0 = 5
+$t1 = 10
+$t1 += $t0 -> $t1 = $t1 + $t0
+add     $t1, $t0, $t1   # $t2 = $t0 + $t1
 
+copy $v0 into $t0 
+move    $t0, $v0 
+3 places that data can be stored in:
+- memory 
+- registers 
+- immediate 3, 4, '\n'
 
 SYSTEM CALLS
 
+printf("%d", 10);
+
+li  $t0, 10     # $t0 = 10
+
+# print_int($t0)
+move    $a0, $t0
+li      $v0, 1
+syscall 
+
 
 DIRECTIVES
+
+
+
+LOADS 
+IMMEDIATE: li 
+$t0 = 
+REGISTER: move 
+$t0 = $a0 
+MEMORY: la
+$t0 = something in memory 
