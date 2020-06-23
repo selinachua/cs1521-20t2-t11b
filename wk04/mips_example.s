@@ -1,4 +1,7 @@
-	
+# Just an example of what a MIPS program looks like.
+
+# There are 2 sections: one is DATA
+# Contains all data we want at assembly time
 	.data
 
 numbers:
@@ -8,7 +11,8 @@ string0:
 string1:
 	.asciiz	"Reverse order:\n"
 
-
+# And the other is TEXT
+# Contains our instructions and actual logic
 	.text
 main:
 	li	$t0, 0		# count = 0
@@ -50,7 +54,7 @@ next:
 	syscall
 
 	sub	$t0, $t0, 1	# count--;
-	b	next
+	j	next
 
 done:
 	jr	$31
