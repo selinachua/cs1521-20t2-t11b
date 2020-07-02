@@ -4,8 +4,10 @@ int main(void) {
 
     i = 0;
     while (i < 10) {
-        if (numbers[i] < 0) {
-            numbers[i] += 42;
+        int num = numbers[i];
+        if (num < 0) {
+            num += 42;
+            numbers[i] = num;
         }
         i++;
     }

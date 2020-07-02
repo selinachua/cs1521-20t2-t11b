@@ -6,7 +6,9 @@ int main(void) {
 
     i = 0;
     while (i < 10) {
-        printf("%d\n", numbers[i]);
+        int num = numbers[i];
+        printf("%d\n", num);
         i++;
     }
+    return 0;
 }

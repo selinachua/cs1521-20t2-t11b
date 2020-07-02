@@ -1,0 +1,10 @@
+MIPS Data (.data)
+- Everything (variables) in C require memory
+- Allocated at compile time (gcc) -> static allocation
+- Things that are statically allocated:
+    - Global and static variables 
+    - Arrays -> int arr[100]
+    - Strings
+
+- These things exist in memory 
+LOAD into reg -> modify it -> SAVE into memory
