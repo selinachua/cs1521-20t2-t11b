@@ -1,0 +1,16 @@
+initialised   -> int i = 10;
+uninitialised -> int i; int arr[10];
+
+int x; -> 4 bytes big
+x:
+    .space  4
+
+Q5:
+
+$t0 = address of cc = 0x10010008
+lw  $t1, 8($t0) 
+
+Q7:
+move    $a0, $t0
+move    $a1, $t1
+jal     func
