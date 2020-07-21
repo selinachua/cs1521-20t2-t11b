@@ -1,0 +1,18 @@
+What will be the file position after each of these calls to lseek()?
+
+lseek(fd, 0, SEEK_END);
+
+lseek(fd, -1000, SEEK_CUR);
+Started off at 4000
+then the answer is: 3000
+
+lseek(fd, 0, SEEK_SET);
+0 
+
+lseek(fd, -100, SEEK_SET);
+0
+
+lseek(fd, 1000, SEEK_SET);
+1000
+lseek(fd, 1000, SEEK_CUR);
+2000

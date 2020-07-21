@@ -1,0 +1,6 @@
+struct { 
+    char c; // offsetted by 1
+    // gap of 3 bytes
+    int x;  // offset 4
+} var;
+
