@@ -14,3 +14,8 @@ open(FilePath, O_RDWR)
 
 fopen(FilePath, "w+")
 open(FilePath, O_RDWR | O_CREAT | O_TRUNC)
+
+FILE *fopen(char *path, char *mode) {
+    int fd = open(path, ...); // file descriptor, 1 -> text.txt 
+    if (open returns null) {...}
+}
