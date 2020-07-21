@@ -1,6 +1,8 @@
 What will be the file position after each of these calls to lseek()?
 
+// File is 10 000 bytes big
 lseek(fd, 0, SEEK_END);
+10 000 
 
 lseek(fd, -1000, SEEK_CUR);
 Started off at 4000

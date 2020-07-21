@@ -1,0 +1,15 @@
+1. What does fopen(3) do? What are its parameters?
+- path is file name
+- mode is r, w, a (could be followed by +) -> use man
+
+2. What are some circumstances when fopen(3) returns NULL?
+- file doesn't exist 
+- corrupt file 
+- you don't have permission for that file
+- you've run out of memory
+
+int *p = 
+FILE *fp = fopen(path, mode);
+fgetc, fputc
+fclose(fp);
+
