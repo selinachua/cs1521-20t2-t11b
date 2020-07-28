@@ -1,0 +1,13 @@
+4. 
+- w actually truncates the whole file -> it rewrites the whole file 
+- a = append -> adds on the end of the file 
+
+6.
+- lseek doesn't actually write at all 
+- it only moves the offset of the file descriptor 
+
+7. SEEK_SET -> from the beginning of the file
+8. SEEK_END -> from the end of the file
+10, 000 + 500 = 10, 500
+- go past the end because you can add on to the end of the file
+- does not give an error!

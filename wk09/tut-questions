@@ -1,0 +1,123 @@
+5. 
+WHAT IS A TREE?
+linked list:
+struct node {
+	int val;
+	struct node *next;
+};
+1 -> 2 -> X
+
+tree:
+struct node {
+	int val;
+	struct node *left;
+	struct node *right;
+}
+
+a) What is the full pathname of COMP1521's web directory?
+/home/cs1521/web
+
+b) Which directory is ~jas/../..?
+/
+.. -> goes up one directory -> goes back to the parent directory
+
+c) Links to the children of a given directory are stored as entries in the 
+directory structure. Where is the link to the parent directory stored?
+..
+
+d) What kind of filesystem object is cat?
+cat -> prints the contents of a file into stdout
+cat -> binary file, something that you can execute
+
+e) What kind of filesystem object is home?
+home -> directory
+
+f) What kind of filesystem object is tty0?
+tty0 -> a file stream that represents a device
+e.g. keyboard
+
+g) What kind of filesystem object is a symbolic link? What value does it contain?
+- symbolic link a file that contains a link to another file 
+- web -symlink-> public_html
+- web is a file that contains a link to the public_html file
+- every time we reference web, we get redirected public_html
+
+h) Symbolic links change the filesystem from a tree structure to a graph 
+structure. How do they do this?
+
+
+------------------------------
+6. 
+- when files are stored in memory -> information about the file itself is also stored 
+- file metadata: information about the file itself:
+	- its size
+	- date created
+	- permissions
+	- type
+- stat is a function that allows us to get file metadata 
+- stat fills up a struct stat 
+
+Explain what each of the fields represents:
+
+struct stat {
+	ino_t st_ino;         /* inode number */
+	mode_t st_mode;       /* protection */
+	uid_t st_uid;         /* user ID of owner */
+	gid_t st_gid;         /* group ID of owner */
+	off_t st_size;        /* total size, in bytes */
+	blksize_t st_blksize; /* blocksize for filesystem I/O */
+	blkcnt_t st_blocks;   /* number of 512B blocks allocated */
+	time_t st_atime;      /* time of last access */
+	time_t st_mtime;      /* time of last modification */
+	time_t st_ctime;      /* time of last status change */
+};
+
+st_ino:  file number, index for the file
+st_mode: permissions
+st_uid:  user id 
+st_gid:  group id
+st_size: total size, in bytes
+st_blksize: size of 1 block 
+st_blocks: # of blocks 
+if blksize = 10B
+file size = 30B
+blocks = 3
+st_atime:
+st_mtime:
+st_ctime:
+
+------------------------------
+7. 
+- user 
+- group 
+- other 
+
+permissions    user  group  size               name
+drwxr-x--- 11 cs1521 cs1521 4096 Aug 27 11:59 17s2.work
+drwxr-xr-x  2 cs1521 cs1521 4096 Aug 20 13:20 bin
+-rw-r-----  1 cs1521 cs1521   38 Jul 20 14:28 give.spec
+drwxr-xr-x  3 cs1521 cs1521 4096 Aug 20 13:20 lib
+drwxr-x--x  3 cs1521 cs1521 4096 Jul 20 10:58 public_html
+drwxr-xr-x 12 cs1521 cs1521 4096 Aug 13 17:31 spim
+drwxr-x---  2 cs1521 cs1521 4096 Sep  4 15:18 tmp
+lrwxrwxrwx  1 cs1521 cs1521   11 Jul 16 18:33 web -> public_html
+a) Who can access the 17s2.work directory?
+anyone can cd into a directory
+you need read permission to do 'ls' -> other can't 'ls'
+
+b) What operations can a typical user perform on the public_html directory?
+- can only execute 
+- they can't ls 
+- they can't change contents of any files
+- if they know the name of a file, they can run it 
+
+c) What is the file web?
+- Symbolic link to public_html 
+
+d) What is the difference between stat("web", &info) and lstat("web", &info)?
+(where info is an object of type (struct stat))
+stat("web", &info):
+gives information about public_html 
+
+lstat("web", &info)
+gives information about web
