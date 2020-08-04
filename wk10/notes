@@ -1,0 +1,32 @@
+ENVIRONMENT VARIABLES 
+- $HOME, $PATH 
+- These are called environment variables
+- This is our environment -> the information a process might
+look at while it's running
+- THe env is basically just a list of information
+- Environment is a list of environment variable 
+
+
+PHYSICAL & VIRTUAL MEMORY
+- How the operating system delegates memory to different processes
+- Limited amount of physical memory 
+
+- most basic way of loading processes:
+    - loading all at once, right next to each other 
+    - not really a feasible way 
+
+- what's the proper way?
+    - separate a process' memory (code, data, stack, heap) into FIXED size
+    blocks called pages 
+    - separate physical memory into FIXED sized blocks called frames
+- Benefits:
+    - doesn't have to load the whole process
+    - doesn't have to load processes contiguously (next to each other) 
+        -> pages can be in separate places
+- Process' POV: doesn't care about other processes 
+    - think as if you have infinite memory
+    - virtual memory - process' POV of memory
+
+
+STEPS FOR VADDR -> PADDR:
+1. Figure out what page it's in 

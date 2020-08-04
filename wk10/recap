@@ -1,0 +1,14 @@
+  USER | GROUP | OTHER
+  rwx  | r-x   | --x
+- user and group can read 
+
+"-rwxr-x--x"
+- type of file
+- d = directory
+- l = link
+- - = regular file
+
+long int - 8 bytes 
+int -> different between different computers 
+uint32 - 32 BITS = 4 bytes -> always going have 32 bits
+uint8  - 8  BITS = 1 byte
